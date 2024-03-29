@@ -12,6 +12,9 @@ if (!empty($_FILES["file"])) {
     // Upload file to server
     if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) {
         echo "The file " . $fileName . " has been uploaded.";
+        // Redirect to index.html
+        header("Location: index.html");
+        exit;
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
