@@ -30,6 +30,17 @@ function uploadImage(event) {
     body: formData
   })
   .then(response => response.text())
-  .then(message => console.log(message))
+  .then(message => {
+    outputDiv.textContent = "Upload response: " + message;
+    if (file.type.includes('image')) {
+      var imageViewer = document.getElementById("image-viewer");
+      var fullImage = document.getElementById("full-image");
+
+      fullImage.src = event.target.result;
+      imageViewer.style.display = "block";
+    }
+  })
   .catch(error => console.error("Error:", error));
 }
+
+document.getElementById("uploadForm").addEventListener("submit", uploadImage);
