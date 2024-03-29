@@ -1,6 +1,6 @@
 <?php
-$targetDir = "/var/www/taken/";
-chmod("/var/www/taken/", 0777);
+$targetDir = "/var/www/html/";
+chmod("/var/www/html/", 0777);
 if (!empty($_FILES["file"])) {
     $fileName = basename($_FILES["file"]["name"]); // Vulnerability 2
     $targetFilePath = $targetDir . $fileName; // Vulnerability 3
